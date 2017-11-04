@@ -1,0 +1,24 @@
+<% if bicycles.any? %>
+ <ul class="media-list">
+    <% @bicycles.each do |bicycle| %>
+      <li class="media">
+        <div class="well center-block" style="width:70%;">
+          <div class="media-left">
+              <% if bicycle.image? %>
+            　　<%= image_tag bicycle.image.thumb.url %>
+            　<% else %>
+            　　<%= image_tag "no_image.png", size:"100" %>
+            　<% end %>
+        　</div>
+          <div class="media-body">
+            車種：<%= bicycle.name %><br>
+            貸し出し場所：<%= bicycle.place %><br>
+            コメント：<%= bicycle.content %><br>
+            <p><%= link_to '詳細', bicycle_path(bicycle) %></p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate bicycles %>
+<% end %>

@@ -1,0 +1,15 @@
+
+.nav-justified {
+  position: relative;
+}
+  
+.nav-justified > li {
+  float: none;
+}
+ 
+.nav-justified > li > a {
+  vertical-align: middle;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
