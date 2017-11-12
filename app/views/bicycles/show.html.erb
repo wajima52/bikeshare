@@ -4,9 +4,15 @@
   <h1><%= @bicycle.name %> の詳細ページ</h1>
 
   <h3>車種：<%= @bicycle.name %><br>
+  貸し出し人：：<%= @bicycle.user.username %><br>
   貸し出し場所：<%= @bicycle.place %><br>
   コメント：<%= @bicycle.content %><br></h3>
-  <br>
+  <% if current_user == @bicycle.user %>
+   <% @applicants.each do |applicant| %>
+    <li><%= applicant %></li>
+   <% end %>
+  <% end %> 
+   
   <br>
    <% if @bicycle.image? %>
   　　<%= image_tag @bicycle.image.url %>
@@ -17,6 +23,8 @@
    <% if current_user == @bicycle.user %>
      <%= link_to '編集する', edit_bicycle_path(@bicycle) %>
      <%= link_to '削除する', @bicycle, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+   <% else %>
+     <%= render 'relationships/wanting_button', bicycle: @bicycle %>
    <% end %>
  </div>
 </div>

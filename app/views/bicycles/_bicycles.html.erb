@@ -1,6 +1,6 @@
 <% if bicycles.any? %>
  <ul class="media-list">
-    <% @bicycles.each do |bicycle| %>
+    <% bicycles.each do |bicycle| %>
       <li class="media">
         <div class="well center-block" style="width:70%;">
           <div class="media-left">
@@ -12,6 +12,7 @@
         　</div>
           <div class="media-body">
             車種：<%= bicycle.name %><br>
+            貸し出し人：：<%= bicycle.user.username %><br>
             貸し出し場所：<%= bicycle.place %><br>
             コメント：<%= bicycle.content %><br>
             <p><%= link_to '詳細', bicycle_path(bicycle) %></p>

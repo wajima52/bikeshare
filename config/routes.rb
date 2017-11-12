@@ -7,4 +7,19 @@ Rails.application.routes.draw do
   
   root 'pages#index'
   get 'pages/show'
+  
+  resources :pages, only: [:index, :show, :new, :create] do
+    member do
+      get :wantings
+    end
+  end
+  
+  resources :bicycles, only: [:index, :show, :new, :create] do
+    member do
+      get :applicants
+    end
+  end
+  
+  
+  resources :relationships, only: [:create, :destroy]
 end

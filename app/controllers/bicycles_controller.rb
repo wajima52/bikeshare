@@ -7,6 +7,8 @@ class BicyclesController < ApplicationController
  end
 
   def show
+    @bicyce = Bicycle.find(params[:id])
+    @applicants = @bicycle.applicants.page(params[:page])
   end
 
   def new
@@ -44,8 +46,22 @@ class BicyclesController < ApplicationController
     flash[:success] = 'bicycle は正常に削除されました'
     redirect_to bicycles_url
   end
-
+  
+ 
 private
+
+ def applicants
+    @bicyce = Bicycle.find(params[:id])
+    @applicants = @bicycle.applicants.page(params[:page])
+    counts(@bicycle)
+ end
+  
+  def wantings
+    @user = User.find(params[:id])
+    @wantings = @user.wantings.page(params[:page])
+    counts(@user)
+  end
+
 
   def set_bicycle
     @bicycle = Bicycle.find(params[:id])
