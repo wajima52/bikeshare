@@ -7,7 +7,6 @@ class BicyclesController < ApplicationController
  end
 
   def show
-    @bicyce = Bicycle.find(params[:id])
     @applicants = @bicycle.applicants.page(params[:page])
   end
 
@@ -50,11 +49,6 @@ class BicyclesController < ApplicationController
  
 private
 
- def applicants
-    @bicyce = Bicycle.find(params[:id])
-    @applicants = @bicycle.applicants.page(params[:page])
-    counts(@bicycle)
- end
   
   def wantings
     @user = User.find(params[:id])

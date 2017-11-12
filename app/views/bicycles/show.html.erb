@@ -8,8 +8,9 @@
   貸し出し場所：<%= @bicycle.place %><br>
   コメント：<%= @bicycle.content %><br></h3>
   <% if current_user == @bicycle.user %>
+  <h3>"借りたい"申請者</h3>
    <% @applicants.each do |applicant| %>
-    <li><%= applicant %></li>
+    <li><%= applicant.username %></li>
    <% end %>
   <% end %> 
    
