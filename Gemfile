@@ -69,3 +69,6 @@ gem 'mini_magick'
 
 gem 'devise'
 gem 'omniauth-twitter'
+
+gem 'haml-rails'
+gem 'erb2haml'

@@ -1,0 +1,25 @@
+- if bicycles.any?
+  %ul.media-list
+    - bicycles.each do |bicycle|
+      %li.media
+        .well.center-block{:style => "width:30%;"}
+          .media-left
+            - if bicycle.image?
+              　　#{image_tag bicycle.image.thumb.url}
+              　
+            - else
+              　　#{image_tag "no_image.png", size:"100"}
+              　
+            　
+          .media-body
+            車種：#{bicycle.name}
+            %br/
+            貸し出し人：：#{bicycle.user.username}
+            %br/
+            貸し出し場所：#{bicycle.place}
+            %br/
+            コメント：#{bicycle.content}
+            %br/
+            .btn.btn-primary
+              = link_to '詳細', bicycle_path(bicycle)
+          = paginate bicycles

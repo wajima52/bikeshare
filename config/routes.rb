@@ -20,6 +20,18 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :bicycles, only: [:index, :show, :new, :create] do
+    member do
+      get :demanders
+    end
+  end
+  
+  resources :users, only: [:index, :show, :new, :create] do
+    member do
+      get :demandings
+    end
+  end
   
   resources :relationships, only: [:create, :destroy]
+  resources :matchings, only: [:create, :destroy, :update]
 end

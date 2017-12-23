@@ -1,0 +1,10 @@
+%section.callaction
+  .container
+    .row
+      .col-lg-12
+        .big-cta
+          .cta-text
+            %h1
+              = current_user.username
+              さんの"借りたい"申請中リスト
+= render 'bicycles/bicycles', bicycles: @wantings

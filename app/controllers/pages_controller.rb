@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
   
   def applicants
-    @bicyce = Bicycle.find(params[:id])
+    @bicycle = Bicycle.find(params[:id])
     @applicants = @bicycle.applicants.page(params[:page])
     @count_applicants = @bicycle.applicants.count
   end

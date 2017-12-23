@@ -1,0 +1,117 @@
+%section#featured
+  / start slider
+  .container
+    .row
+      .col-lg-12
+        / Slider
+        = image_tag('toppage2.png')
+        .flex-caption
+          %h3
+            サイクリングに
+            %br/
+            出かけよう！
+          %p Duis fermentum auctor ligula ac malesuada. Mauris et metus odio, in pulvinar urna
+      / end slider
+%section.callaction
+  .container
+    .row
+      .col-lg-12
+        .big-cta
+          .cta-text
+            %h2
+              %span Moderna
+              HTML Business Template
+%section#content
+  .container
+    .row
+      .col-lg-12
+        .row
+          .col-lg-3
+            .box
+              .box-gray.aligncenter
+                %h4 Fully responsive
+                .icon
+                  %i.fa.fa-desktop.fa-3x
+                %p
+                  Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
+              .box-bottom
+                %a{:href => "#"} Learn more
+          .col-lg-3
+            .box
+              .box-gray.aligncenter
+                %h4 Modern Style
+                .icon
+                  %i.fa.fa-pagelines.fa-3x
+                %p
+                  Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
+              .box-bottom
+                %a{:href => "#"} Learn more
+          .col-lg-3
+            .box
+              .box-gray.aligncenter
+                %h4 Customizable
+                .icon
+                  %i.fa.fa-edit.fa-3x
+                %p
+                  Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
+              .box-bottom
+                %a{:href => "#"} Learn more
+          .col-lg-3
+            .box
+              .box-gray.aligncenter
+                %h4 Valid HTML5
+                .icon
+                  %i.fa.fa-code.fa-3x
+                %p
+                  Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
+              .box-bottom
+                %a{:href => "#"} Learn more
+    / divider
+    .row
+      .col-lg-12
+        .solidline
+    / end divider
+    / Portfolio Projects
+    .row
+      .col-lg-12
+        %h4.heading Recent Works
+        .row
+          %section#projects
+            %ul#thumbs.portfolio
+              / Item Project and Filter Name
+              %li.col-lg-3.design{"data-id" => "id-0", "data-type" => "web"}
+                .item-thumbs
+                  / Fancybox - Gallery Enabled - Title - Full Image
+                  %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "img/works/1.jpg", :title => "Work 1"}
+                    %span.overlay-img
+                    %span.overlay-img-thumb.font-icon-plus
+                  / Thumb Image and Description
+                  %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "img/works/1.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.col-lg-3.design{"data-id" => "id-1", "data-type" => "icon"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "img/works/2.jpg", :title => "Work 2"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "img/works/2.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.col-lg-3.photography{"data-id" => "id-2", "data-type" => "illustrator"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "img/works/3.jpg", :title => "Work 3"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "img/works/3.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.col-lg-3.photography{"data-id" => "id-2", "data-type" => "illustrator"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "img/works/4.jpg", :title => "Work 4"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "img/works/4.jpg"}/
+              / End Item Project

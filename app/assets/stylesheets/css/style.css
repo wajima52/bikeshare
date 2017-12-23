@@ -1988,3 +1988,19 @@ article img.pull-right, article .align-right{
 @media (max-width: 360px) {
 
 }
+
+form.edit_matching{
+	margin-right: 2px;
+	display: inline;
+	float: right;
+}
+
+h3 {
+	display: inline;
+	width: 250px
+}
+
+.return_button {
+	display: block;
+	margin:5px;
+}

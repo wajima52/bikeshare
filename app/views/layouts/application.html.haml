@@ -1,0 +1,45 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %title Bikeshare
+    = csrf_meta_tags
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
+    %link{:href => "mydesign.css", :rel => "stylesheet"}/
+    = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+  %body
+    #wrapper
+      = render "layouts/flash_messages"
+      / start header
+      %header
+        .navbar.navbar-default.navbar-static-top
+          .container
+            .navbar-header
+              %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              %a.navbar-brand{:href => "/"} Bicycle Shareing!
+            .navbar-collapse.collapse
+              %ul.nav.navbar-nav
+                %li.active
+                  %a{:href => "index.html"} Home
+                %li= link_to '自転車一覧', bicycles_url
+                - if user_signed_in?
+                  %li= link_to '自転車登録', new_bicycle_url
+                  %li= link_to '貸し出しリスト', pages_show_path
+                  %li= link_to '借りたいリスト', wantings_page_path(current_user)
+                  %li= link_to 'プロフィール変更', edit_user_registration_path
+                  %li= link_to 'ログアウト', destroy_user_session_path, method: :delete
+                - else
+                  %li= link_to 'サインアップ', new_user_registration_path
+                  %li= link_to 'ログイン', new_user_session_path
+      / end header
+    %a.scrollup{:href => "#"}
+      %i.fa.fa-angle-up.active
+    = yield

@@ -784,3 +784,6 @@ you can use the generic selector below, but it's slower:
 	content: "\e0f1";
 }
 
+.return_button {
+	display: inline;
+}

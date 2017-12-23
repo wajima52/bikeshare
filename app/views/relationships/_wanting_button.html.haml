@@ -1,0 +1,9 @@
+- if current_user.wanting?(bicycle)
+  = form_for(current_user.relationships.find_by(rental_bicycle_id: bicycle.id), html: { method: :delete }) do |f|
+    = hidden_field_tag :rental_bicycle_id, bicycle.id
+    = f.submit '借りたいリストから外す', class: 'btn btn-danger btn-block'
+- else
+  = form_for(current_user.relationships.build) do |f|
+    = hidden_field_tag :rental_bicycle_id, bicycle.id
+    = f.submit '借りたいリストに入れる', class: 'btn btn-primary btn-block'
+　　

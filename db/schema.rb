@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104113808) do
+ActiveRecord::Schema.define(version: 20171213121101) do
 
   create_table "bicycles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 20171104113808) do
     t.string   "image"
     t.integer  "user_id"
     t.index ["user_id"], name: "index_bicycles_on_user_id", using: :btree
+  end
+
+  create_table "matchings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "renter_id"
+    t.integer  "borrower_id"
+    t.integer  "bicycle_id"
+    t.integer  "matching_status", default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "return_message"
+    t.index ["bicycle_id"], name: "index_matchings_on_bicycle_id", using: :btree
+    t.index ["borrower_id"], name: "index_matchings_on_borrower_id", using: :btree
+    t.index ["renter_id", "borrower_id"], name: "index_matchings_on_renter_id_and_borrower_id", unique: true, using: :btree
+    t.index ["renter_id"], name: "index_matchings_on_renter_id", using: :btree
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,6 +77,9 @@ ActiveRecord::Schema.define(version: 20171104113808) do
   end
 
   add_foreign_key "bicycles", "users"
+  add_foreign_key "matchings", "bicycles"
+  add_foreign_key "matchings", "users", column: "borrower_id"
+  add_foreign_key "matchings", "users", column: "renter_id"
   add_foreign_key "relationships", "bicycles", column: "rental_bicycle_id"
   add_foreign_key "relationships", "users"
 end

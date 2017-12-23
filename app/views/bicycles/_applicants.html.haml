@@ -1,0 +1,12 @@
+- if applicants.any?
+  %ul.media-list
+    - applicants.each do |applicant|
+      %li.media
+        .well.center-block{:style => "width:70%;"}
+          = bicycle.name
+          希望者：
+          .media-body
+            %br/
+            返信ボタン
+            .btn.btn-primary
+          = paginate applicants

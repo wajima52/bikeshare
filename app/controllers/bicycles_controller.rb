@@ -1,5 +1,5 @@
 class BicyclesController < ApplicationController
-    before_action :set_bicycle, only: [:show, :edit, :update, :destroy]
+    before_action :set_bicycle, only: [:show, :edit, :update, :destroy, :demanders]
     before_action :authenticate_user!, only: [:create, :new, :destroy, :update]
     
  def index
@@ -46,6 +46,10 @@ class BicyclesController < ApplicationController
     redirect_to bicycles_url
   end
   
+  def demanders
+   @borrowers = @bicycle.borrowers.page(params[:page])
+  end
+ 
  
 private
 
@@ -64,6 +68,8 @@ private
   def bicycle_params
     params.require(:bicycle).permit(:name, :place, :content, :image, :user)
   end
+  
+  
 
   
 end

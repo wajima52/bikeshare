@@ -1,0 +1,16 @@
+%section.callaction
+  .container
+    .row
+      .col-lg-12
+        .big-cta
+          .cta-text
+            %h1
+              = current_user.username
+              さんの貸出中リスト
+- if user_signed_in?
+  = render 'bicycles/bicycles', bicycles: @bicycles
+- else
+  .center.jumbotron
+    .text-center
+      %h1 ログインして下さい
+      = link_to 'Log in!', new_user_session_path, class: 'btn btn-lg btn-primary'
