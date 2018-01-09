@@ -11,6 +11,7 @@ class Bicycle < ApplicationRecord
   
   has_many :matchings
   has_many :borrowers, through: :matchings, source: :borrower
+  has_many :return_messages, through: :matchings, source: :return_message
   
   
   def applicant(user)

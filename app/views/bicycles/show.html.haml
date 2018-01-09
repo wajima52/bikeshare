@@ -1,33 +1,39 @@
+%section.callaction
+  .container
+    .row
+      .col-lg-12
+        .big-cta
+          .cta-text
+            %h1
+              = @bicycle.name
+              の詳細ページ 
+
 .container
-  .well.center-block
-    %h1
-      = @bicycle.name
-      の詳細ページ
-    %h3
-      車種：#{@bicycle.name}
-      %br/
-      貸し出し人：：#{@bicycle.user.username}
-      %br/
-      貸し出し場所：#{@bicycle.place}
-      %br/
-      コメント：#{@bicycle.content}
-      %br/
-    - if current_user == @bicycle.user
-      %h3 "借りたい"申請者
-      - if @applicants.any?
-        = link_to '申請者一覧', demanders_bicycle_path(@bicycle)
-      - else
-        %h4 申請者なし
+  %h3
+    車種：#{@bicycle.name}
     %br/
-    - if @bicycle.image?
-      　　#{image_tag @bicycle.image.url}
-      　
+    貸し出し人：#{@bicycle.user.username}
+    %br/
+    貸し出し場所：#{@bicycle.place}
+    %br/
+    コメント：#{@bicycle.content}
+    %br/
+  - if current_user == @bicycle.user
+    %h3 "借りたい"申請者
+    - if @applicants.any?
+      = link_to '申請者一覧', demanders_bicycle_path(@bicycle)
     - else
-      　#{image_tag "no_image.png", size:"300"}
-    %br/
-    - if user_signed_in?
-      - if current_user == @bicycle.user
-        = link_to '編集する', edit_bicycle_path(@bicycle)
-        = link_to '削除する', @bicycle, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }
-      - else
-        = render 'relationships/wanting_button', bicycle: @bicycle
+      %h4 申請者なし
+  %br/
+  - if @bicycle.image?
+    　　#{image_tag @bicycle.image.url}
+    　
+  - else
+    　#{image_tag "no_image.png", size:"300"}
+  %br/
+  - if user_signed_in?
+    - if current_user == @bicycle.user
+      = link_to '編集する', edit_bicycle_path(@bicycle)
+      = link_to '削除する', @bicycle, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }
+    - else
+      = render 'relationships/wanting_button', bicycle: @bicycle

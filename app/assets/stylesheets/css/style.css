@@ -1992,7 +1992,6 @@ article img.pull-right, article .align-right{
 form.edit_matching{
 	margin-right: 2px;
 	display: inline;
-	float: right;
 }
 
 h3 {
@@ -2004,3 +2003,4 @@ h3 {
 	display: block;
 	margin:5px;
 }
+

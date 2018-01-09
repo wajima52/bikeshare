@@ -64,6 +64,7 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.11)
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
@@ -251,6 +252,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.2)
   devise
+  devise-bootstrap-views
   erb2haml
   haml-rails
   hirb
@@ -277,4 +279,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
