@@ -2,9 +2,17 @@ class BicyclesController < ApplicationController
     before_action :set_bicycle, only: [:show, :edit, :update, :destroy, :demanders]
     before_action :authenticate_user!, only: [:create, :new, :destroy, :update]
     
- def index
-    @bicycles = Bicycle.all.page(params[:page]).per(10)
- end
+  def index
+    @q = Bicycle.ransack(params[:q])
+    @bicycles = @q.result(distinct: true)
+    @bicycles = @bicycles.page(params[:page])
+  end
+
+  def search
+    @q = Bicycle.search(search_params)
+    @bicycles = @q.result(distinct: true)
+  end
+
 
   def show
     @applicants = @bicycle.applicants.page(params[:page])
@@ -47,7 +55,7 @@ class BicyclesController < ApplicationController
   end
   
   def demanders
-   @borrowers = @bicycle.borrowers.page(params[:page])
+    @borrowers = @bicycle.borrowers.page(params[:page])
   end
  
  
@@ -68,9 +76,9 @@ private
   def bicycle_params
     params.require(:bicycle).permit(:name, :place, :content, :image, :user)
   end
-  
-  
 
-  
+  def search_params
+    params.require(:q).permit!
+  end
 end
   

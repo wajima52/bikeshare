@@ -2004,3 +2004,8 @@ h3 {
 	margin:5px;
 }
 
+.btn.btn-primary:active {
+	color: green;
+}
+
+

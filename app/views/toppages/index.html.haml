@@ -70,6 +70,8 @@
     .row
       .col-lg-12
         .solidline
+        - @bicycles.each do |bicycle|
+          =bicycle.name
     / end divider
     / Portfolio Projects
     .row

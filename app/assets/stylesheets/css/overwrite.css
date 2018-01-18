@@ -1366,7 +1366,25 @@ font-weight:600;
 
 
 
+.btn.btn-primary.a{
+  background-color: white;
+  color: blue;
+}
 
+.btn.btn-primary.b{
+  background-color: white;
+  color: blue;
+}
+
+.btn.btn-primary.a.active {
+  background-color: blue;
+  color: white;
+}
+
+.btn.btn-primary.b.active {
+  background-color: blue;
+  color: white;
+}
 
 
 

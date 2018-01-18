@@ -34,4 +34,9 @@ Rails.application.routes.draw do
   
   resources :relationships, only: [:create, :destroy]
   resources :matchings, only: [:create, :destroy, :update]
+
+  Rails.application.routes.draw do
+    root to: 'bicycles#index'
+    get 'search', to: 'bicycles#search'
+  end
 end

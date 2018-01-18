@@ -4,6 +4,21 @@ jQuery(document).ready(function($) {
 
 	
 		//add some elements with animate effect
+			
+		$(function(){
+		    $('.btn.btn-primary.a').on('click', function(){
+		        $(this).toggleClass('active');
+		        $('.btn.btn-primary.b').removeClass('active');
+		    });
+
+		    $('.btn.btn-primary.b').on('click', function(){
+		        $(this).toggleClass('active');
+		        $('.btn.btn-primary.a').removeClass('active');
+		    });
+		});
+
+
+
 
 		$(".big-cta").hover(
 			function () {

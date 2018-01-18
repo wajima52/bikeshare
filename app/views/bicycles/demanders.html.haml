@@ -31,17 +31,34 @@
             -else
               %td -
             %td
+              / = form_for(@bicycle.matchings.find_by(borrower_id: borrower.id)) do |f|
+              /   = f.hidden_field :renter_id, value: current_user.id
+              /   = f.hidden_field :matching_status, value: "2"
+              /   = hidden_field_tag :borrower_id, borrower.id
+              /   = f.submit '拒否', class: 'btn btn-primary'
+              / = form_for(@bicycle.matchings.find_by(borrower_id: borrower.id)) do |f|
+              /   = f.hidden_field :renter_id, value: current_user.id
+              /   = f.hidden_field :matching_status, value: "1"
+              /   = hidden_field_tag :borrower_id, borrower.id
+              /   = f.submit '承認', class: 'btn btn-primary'
+              / = form_for(@bicycle.matchings.find_by(borrower_id: borrower.id)) do |f|
+              /   = f.text_field :return_message, placeholder: "メッセージ"
+              /   = f.submit 'メッセージを送る'
               = form_for(@bicycle.matchings.find_by(borrower_id: borrower.id)) do |f|
                 = f.hidden_field :renter_id, value: current_user.id
                 = f.hidden_field :matching_status, value: "2"
                 = hidden_field_tag :borrower_id, borrower.id
-                = f.submit '拒否', class: 'btn btn-primary'
+                = submit_tag '拒否', type: 'button', class: 'btn btn-primary a'
               = form_for(@bicycle.matchings.find_by(borrower_id: borrower.id)) do |f|
                 = f.hidden_field :renter_id, value: current_user.id
                 = f.hidden_field :matching_status, value: "1"
                 = hidden_field_tag :borrower_id, borrower.id
-                = f.submit '承認', class: 'btn btn-primary'
+                = submit_tag '承認', type: 'button', class: 'btn btn-primary b'
               = form_for(@bicycle.matchings.find_by(borrower_id: borrower.id)) do |f|
                 = f.text_field :return_message, placeholder: "メッセージ"
                 = f.submit 'メッセージを送る'
+  .btn.btn-primary.a
+    TEST1
+  .btn.btn-primary.b
+    TEST2
 
