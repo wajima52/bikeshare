@@ -5,17 +5,29 @@ jQuery(document).ready(function($) {
 	
 		//add some elements with animate effect
 			
-		$(function(){
-		    $('.btn.btn-primary.a').on('click', function(){
-		        $(this).toggleClass('active');
-		        $('.btn.btn-primary.b').removeClass('active');
-		    });
+		// $(function(){
+		//     $("btn.btn-primary.a.ok_#{borrower.id}").on('click', function(){
+		//         $(this).toggleClass('active');
+		//         $("btn.btn-primary.b.no_#{borrower.id}").removeClass('active');
+		//     });
 
-		    $('.btn.btn-primary.b').on('click', function(){
-		        $(this).toggleClass('active');
-		        $('.btn.btn-primary.a').removeClass('active');
-		    });
-		});
+		//     $("btn.btn-primary.b.no_#{borrower.id}").on('click', function(){
+		//         $(this).toggleClass('active');
+		//         $("btn.btn-primary.a.ok_#{borrower.id}").removeClass('active');
+		//     });
+		// });
+
+		// $(function(){
+		//     $('.btn.btn-primary.a').on('click', function(){
+		//         $(this).toggleClass('active');
+		//         $('.btn.btn-primary.b').removeClass('active');
+		//     });
+
+		//     $('.btn.btn-primary.b').on('click', function(){
+		//         $(this).toggleClass('active');
+		//         $('.btn.btn-primary.a').removeClass('active');
+		//     });
+		// });
 
 
 
