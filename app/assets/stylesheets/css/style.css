@@ -37,12 +37,28 @@ a:active {
 	clear:both;
 }
 
-h1,h2, h3, h4, h5, h6 {
+h1,h2, h3 {
 	font-family:'Open Sans', Arial, sans-serif;
 	font-weight:700;
 	line-height:1.1em;
 	color:#333;
 	margin-bottom: 20px;
+}
+h4,h5, h6 {
+	font-family:'Open Sans', Arial, sans-serif;
+	font-weight:700;
+	line-height:0.5em;
+	color:#333;
+	margin-bottom: 20px;
+}
+.table-show{
+	width: 400px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;
+}
+.table-left{
+	width: 150px;
 }
 
 /* ===================================
@@ -389,6 +405,16 @@ section.callaction {
 .box-gray  h4,.box-gray  i {
 	margin-bottom: 20px;
 }
+
+.box-toppage  {
+	height: 350px;
+	background: #f8f8f8;
+	padding: 20px 20px 30px;
+}
+.box-toppage  h4,.box-gray  i {
+	margin-bottom: 20px;
+}
+
 .box-bottom {
 	padding: 20px 0;
 	text-align: center;

@@ -11,14 +11,21 @@
               　
             　
           .media-body
-            車種：#{bicycle.name}
-            %br/
-            貸し出し人：：#{bicycle.user.username}
-            %br/
-            貸し出し場所：#{bicycle.place}
-            %br/
-            コメント：#{bicycle.content}
-            %br/
-            .btn.btn-primary
-              = link_to '詳細', bicycle_path(bicycle)
+            .h3
+              車種：#{bicycle.name}
+              %br/
+              貸し出し人：#{bicycle.user.username}
+              %br/
+              貸し出し場所：#{bicycle.place}
+              %br/
+              コメント：#{bicycle.content}
+              %br/
+              .btn.btn-primary
+                = link_to '詳細', bicycle_path(bicycle)
+          .media.answer
+            - if bicycle.matchings.find_by(borrower_id: current_user.id).return_message != nil 
+              返答：-
+            - else
+              返答："= bicycle.matchings.find_by(borrower_id: current_user.id).return_message"              
           = paginate bicycles
+

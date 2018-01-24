@@ -33,7 +33,8 @@ Rails.application.routes.draw do
   end
   
   resources :relationships, only: [:create, :destroy]
-  resources :matchings, only: [:create, :destroy, :update]
+  resources :matchings, only: [:create, :destroy]
+  resource :matchings, only: [:update]
 
   Rails.application.routes.draw do
     root to: 'bicycles#index'

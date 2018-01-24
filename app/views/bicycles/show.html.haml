@@ -9,21 +9,32 @@
               の詳細ページ 
 
 .container
-  %h3
-    車種：#{@bicycle.name}
-    %br/
-    貸し出し人：#{@bicycle.user.username}
-    %br/
-    貸し出し場所：#{@bicycle.place}
-    %br/
-    コメント：#{@bicycle.content}
-    %br/
-  - if current_user == @bicycle.user
-    %h3 "借りたい"申請者
-    - if @applicants.any?
-      = link_to '申請者一覧', demanders_bicycle_path(@bicycle)
-    - else
-      %h4 申請者なし
+  %table.table.table-show
+    %thead
+      %tr
+        %th.table-left
+        %th
+    %tbody
+      %tr
+        %td 車種
+        %td #{@bicycle.name}
+      %tr
+        %td 貸し出し人
+        %td #{@bicycle.user.username}
+      %tr
+        %td 貸し出し場所
+        %td #{@bicycle.place}
+      %tr
+        %td コメント
+        %td #{@bicycle.content}
+      - if current_user == @bicycle.user
+        %tr
+          %td"借りたい"申請者
+          - if @applicants.any?
+            %td
+              = link_to '申請者一覧', demanders_bicycle_path(@bicycle)
+          - else
+            %td 申請者なし
   %br/
   - if @bicycle.image?
     　　#{image_tag @bicycle.image.url}

@@ -12,16 +12,19 @@ class MatchingsController < ApplicationController
   end
   
   def update
-    @matching = Matching.find(params[:id])
-    @matching.update(matching_params)
+    @matchings = matchings_params.map do |id, matching_param|
+      matching = Matching.find(id)
+      matching.update_attributes(matching_param)
+      matching
+    end
     flash[:success] = '希望者に返信しました。'
     redirect_to :back
   end
   
   private
   
-  def matching_params
-   params.require(:matching).permit(:renter_id,:borrower_id, :bicycle_id, :matching_status, :return_message)
+  def matchings_params
+    params.permit(matchings: [:renter_id,:borrower_id, :bicycle_id, :matching_status, :return_message])[:matchings]
   end
     
 end
