@@ -22,8 +22,11 @@
         %td 貸し出し人
         %td #{@bicycle.user.username}
       %tr
-        %td 貸し出し場所
+        %td 場所_都道府県
         %td #{@bicycle.place}
+      %tr
+        %td 場所_詳細
+        %td #{@bicycle.place2}
       %tr
         %td コメント
         %td #{@bicycle.content}

@@ -74,7 +74,7 @@ private
   end
   
   def bicycle_params
-    params.require(:bicycle).permit(:name, :place, :content, :image, :user)
+    params.require(:bicycle).permit(:name, :place, :content, :image, :user, :place2)
   end
 
   def search_params
