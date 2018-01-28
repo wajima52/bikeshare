@@ -23,9 +23,10 @@
               .btn.btn-primary
                 = link_to '詳細', bicycle_path(bicycle)
           .media.answer
-            - if bicycle.matchings.find_by(borrower_id: current_user.id).return_message != nil 
-              返答：-
-            - else
-              返答："= bicycle.matchings.find_by(borrower_id: current_user.id).return_message"              
+            - if bicycle.matchings.include?(current_user)
+              -if bicycle.matchings.find_by(borrower_id: borrower.id).matching_status == "1"
+                返答：承認　メッセージ："= bicycle.mymatching.return_message"
+              -else
+                返答：拒否　メッセージ："= bicycle.mymatching.return_message"
           = paginate bicycles
 

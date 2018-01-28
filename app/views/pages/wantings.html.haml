@@ -1,10 +1,39 @@
 %section.callaction
-  .container
-    .row
-      .col-lg-12
-        .big-cta
-          .cta-text
-            %h1
-              = current_user.username
-              さんの"借りたい"申請中リスト
-= render 'bicycles/bicycles', bicycles: @wantings
+	.container
+		.row
+			.col-lg-12
+				.big-cta
+					.cta-text
+						%h1
+							= current_user.username
+							さんの"借りたい"申請中リスト
+.container
+	.return_button
+		- if user_signed_in?
+			%table.table.table-hover
+				%thead
+					%tr
+						%th 名前
+						%th 場所
+						%th 貸し出し人
+						%th 詳細
+						%th 貸し出し人からの返答、メッセージ
+					%tbody
+						- @bicycles.each do |bicycle|
+							%tr
+								%td= bicycle.name
+								%td= bicycle.place
+								%td= bicycle.user.username
+								%td
+									= link_to '詳細', bicycle_path(bicycle)
+								- if bicycle.matchings.find_by(borrower_id: current_user.id).matching_status == 1
+									%td 返答：承諾、メッセージ：#{bicycle.matchings.find_by(borrower_id: current_user.id).return_message}
+								- elsif bicycle.matchings.find_by(borrower_id: current_user.id).matching_status == 2
+									%td 返答：拒否、メッセージ：#{bicycle.matchings.find_by(borrower_id: current_user.id).return_message}
+								-else
+									%td -
+		- else
+			.center.jumbotron
+				.text-center
+					%h1 ログインして下さい
+					= link_to 'Log in!', new_user_session_path, class: 'btn btn-lg btn-primary'

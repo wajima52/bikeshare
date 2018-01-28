@@ -1,8 +1,0 @@
-= form_for(bicycle.matchings.find_by(borrower_id@bicycle: user.id)) do |f|
-= hidden_field_tag :renter_id, current_user.id
-= hidden_field_tag :matching, "1"
-= f.submit '承認', class: 'btn btn-primary btn-block'
-= form_for(bicycle.matchings.find_by(borrower_id: user.id)) do |f|
-  = hidden_field_tag :renter_id, current_user.id
-  = hidden_field_tag :matching, "2"
-  = f.submit '拒否', class: 'btn btn-primary btn-block'

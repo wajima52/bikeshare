@@ -11,7 +11,9 @@ class Bicycle < ApplicationRecord
   
   has_many :matchings
   has_many :borrowers, through: :matchings, source: :borrower
+  has_many :renters, through: :matchings, source: :renter
   has_many :return_messages, through: :matchings, source: :return_message
+  has_many :reverce_of_matchings, class_name: 'Matchings', foreign_key: 'bicycle_id'
   
   
   def applicant(user)
@@ -26,7 +28,10 @@ class Bicycle < ApplicationRecord
   def borrower(user)
    self.matchings.find_by(borrower_id: user.id)
   end
-  
+
+  def borrowing?
+    self.borrower.include?(current_user)
+  end
 #accepts_nested_attributes_for :matchings, allow_destroy: true
 
 end

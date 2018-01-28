@@ -27,14 +27,6 @@
       %tr
         %td コメント
         %td #{@bicycle.content}
-      - if current_user == @bicycle.user
-        %tr
-          %td"借りたい"申請者
-          - if @applicants.any?
-            %td
-              = link_to '申請者一覧', demanders_bicycle_path(@bicycle)
-          - else
-            %td 申請者なし
   %br/
   - if @bicycle.image?
     　　#{image_tag @bicycle.image.url}

@@ -7,10 +7,31 @@
             %h1
               = current_user.username
               さんの貸出中リスト
-- if user_signed_in?
-  = render 'bicycles/bicycles', bicycles: @bicycles
-- else
-  .center.jumbotron
-    .text-center
-      %h1 ログインして下さい
-      = link_to 'Log in!', new_user_session_path, class: 'btn btn-lg btn-primary'
+.container
+  .return_button
+    - if user_signed_in?
+      %table.table.table-hover
+        %thead
+          %tr
+            %th 名前
+            %th 場所
+            %th 申請者
+            %th 詳細
+        %tbody
+          - @bicycles.each do |bicycle|
+            - @applicants = bicycle.applicants.page(params[:page])
+            %tr
+              %td= bicycle.name
+              %td= bicycle.place
+              - if @applicants.any?
+                %td
+                  = link_to "#{bicycle.applicants.count}名", demanders_bicycle_path(bicycle)
+              - else
+                %td 申請者なし
+              %td
+                = link_to '詳細', bicycle_path(bicycle)
+    - else
+      .center.jumbotron
+        .text-center
+          %h1 ログインして下さい
+          = link_to 'Log in!', new_user_session_path, class: 'btn btn-lg btn-primary'

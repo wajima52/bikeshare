@@ -22,7 +22,7 @@
             %tr
               %td= borrower.username
               - if @bicycle.matchings.find_by(borrower_id: borrower.id).matching_status == 1
-                %td 承認
+                %td 承諾
               - elsif @bicycle.matchings.find_by(borrower_id: borrower.id).matching_status == 2
                 %td 拒否
               -else
@@ -32,38 +32,13 @@
               -else
                 %td -
               %td
-                / = form_for(@bicycle.matchings.find_by(borrower_id: borrower.id)) do |f|
-                /   = f.hidden_field :renter_id, value: current_user.id
-                /   = f.hidden_field :matching_status, value: "2"
-                /   = hidden_field_tag :borrower_id, borrower.id
-                /   = f.submit '拒否', class: 'btn btn-primary'
-                / = form_for(@bicycle.matchings.find_by(borrower_id: borrower.id)) do |f|
-                /   = f.hidden_field :renter_id, value: current_user.id
-                /   = f.hidden_field :matching_status, value: "1"
-                /   = hidden_field_tag :borrower_id, borrower.id
-                /   = f.submit '承認', class: 'btn btn-primary'
-                / = form_for(@bicycle.matchings.find_by(borrower_id: borrower.id)) do |f|
-                /   = f.text_field :return_message, placeholder: "メッセージ"
-                /   = f.submit 'メッセージを送る'
                 = fields_for "matchings[]", @bicycle.matchings.find_by(borrower_id: borrower.id) do |fi|
                   %label
                     = fi.radio_button :matching_status, "1"
-                    承認
+                    承諾
                   %label
                     = fi.radio_button :matching_status, "2"
                     拒否
                   = fi.text_field :return_message, placeholder: "メッセージ"
-                / :javascript
-                /   $(function(){
-                /     $(".btn.btn-primary.a.ok_#{borrower.id}").on('click', function(){
-                /       $(this).toggleClass('active');
-                /       $(".btn.btn-primary.b.no_#{borrower.id}").removeClass('active');
-                /     });
-
-                /     $(".btn.btn-primary.b.no_#{borrower.id}").on('click', function(){
-                /       $(this).toggleClass('active');
-                /       $(".btn.btn-primary.a.ok_#{borrower.id}").removeClass('active');
-                /     });
-                /   });
       = submit_tag "登録" 
 
