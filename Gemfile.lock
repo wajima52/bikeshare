@@ -287,7 +287,7 @@ DEPENDENCIES
   rails-erd
   rails_12factor
   ransack
-  sass-rails (~> 5.0)
+  sass-rails (>= 3.2)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
