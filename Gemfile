@@ -77,8 +77,6 @@ gem 'devise-bootstrap-views'
 
 gem 'ransack'
 
-group :production do
-  gem 'pg', '0.21.0'
-end
+gem 'pg', '0.21.0'
 
 gem 'rails_12factor', group: :production
