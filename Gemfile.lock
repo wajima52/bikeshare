@@ -264,7 +264,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   carrierwave
-  coffee-rails (~> 4.2)
+  coffee-rails (~> 4.2.2)
   devise
   devise-bootstrap-views
   erb2haml
@@ -278,7 +278,7 @@ DEPENDENCIES
   mini_magick
   mysql2 (>= 0.3.18, < 0.5)
   omniauth-twitter
-  pg
+  pg (= 0.21.0)
   pry-byebug
   pry-doc
   pry-rails
