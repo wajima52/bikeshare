@@ -75,6 +75,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 
 gem 'devise-bootstrap-views'
+gem 'bootstrap-sass'
 
 gem 'ransack'
 
