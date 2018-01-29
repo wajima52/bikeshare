@@ -16,7 +16,7 @@
  */
 
  # SASS
- = require devise_bootstrap_views
+ *= require devise_bootstrap_views
 
  # LESS
- = require devise_bootstrap_views_less
+ *= require devise_bootstrap_views_less
