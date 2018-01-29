@@ -59,8 +59,6 @@
               %a.navbar-brand{:href => "/"} Bicycle Shareing!
             .navbar-collapse.collapse
               %ul.nav.navbar-nav
-                %li.active
-                  %a{:href => "index.html"} Home
                 %li= link_to '自転車一覧', bicycles_url
                 - if user_signed_in?
                   %li= link_to '自転車登録', new_bicycle_url
