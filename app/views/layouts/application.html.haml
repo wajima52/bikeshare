@@ -61,7 +61,7 @@
               %ul.nav.navbar-nav
                 %li= link_to '自転車一覧', bicycles_url
                 - if user_signed_in?
-                  %li= link_to '自転車登録', new_bicycle_url
+                  %li= link_to '貸出自転車登録', new_bicycle_url
                   %li= link_to '貸し出しリスト', pages_show_path
                   %li= link_to '借りたいリスト', wantings_page_path(current_user)
                   %li= link_to 'プロフィール変更', edit_user_registration_path
