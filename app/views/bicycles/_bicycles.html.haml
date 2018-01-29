@@ -20,7 +20,7 @@
               %br/
               コメント：#{bicycle.content}
               %br/
-              .btn.btn-primary
+              .btn.btn-default
                 = link_to '詳細', bicycle_path(bicycle)
           .media.answer
             - if bicycle.matchings.include?(current_user)
