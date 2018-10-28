@@ -12,13 +12,12 @@ class MatchingsController < ApplicationController
   end
   
   def update
-    @matchings = matchings_params.map do |id, matching_param|
+    matchings_params.each do |id, matching_param|
       matching = Matching.find(id)
       matching.update_attributes(matching_param)
-      matching
     end
     flash[:success] = '希望者に返信しました。'
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
   
   private

@@ -82,3 +82,5 @@ gem 'ransack'
 gem 'pg', '0.21.0'
 
 gem 'rails_12factor', group: :production
+
+gem 'rails-erd', group: :development
