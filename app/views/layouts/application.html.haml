@@ -8,10 +8,8 @@
     %title Bikeshare
     = csrf_meta_tags
     %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
-    %link{:href => "mydesign.css", :rel => "stylesheet"}/
     %link{:rel => "stylesheet", :href =>"https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.css"}/
     %link{:rel => "stylesheet", :href =>"https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css"}/
-    %link{:rel => "stylesheet", :href => "path/to/swiper.min.css"}/
     = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:rel => "stylesheet", :href => "//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css"}/
@@ -19,8 +17,6 @@
     %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.js"}
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"}
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.js"}
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.bundle.js"}
     :css
       .swiper-container{
         width: 100%;
@@ -73,7 +69,6 @@
     %a.scrollup{:href => "#"}
       %i.fa.fa-angle-up.active
     = yield
-    %script{:src => "path/to/swiper.min.js"}
     :javascript
       var swiper = new Swiper('.swiper-container', {
         slidesPerView: 3,
